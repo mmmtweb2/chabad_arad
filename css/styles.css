@@ -4,16 +4,10 @@
 :root {
     --chabad-burgundy: #6a0f2b;
     --chabad-burgundy-light: #8b3a53;
-    --chabad-burgundy-ultra-light: #b8607a;
     --chabad-orange: #f58220;
-    --chabad-orange-light: #f89c4c;
-    --chabad-orange-ultra-light: #fcbb7a;
     --text-light: #ffffff;
     --text-dark: #333333;
     --background-light: #fef7f2;
-    --background-dark: #1a1a1a;
-    --section-bg-orange-light: #fdf0e7;
-    --section-bg-burgundy-light: #f4e7ec;
     --section-bg-gradient: linear-gradient(135deg, #fdf0e7 0%, #f4e7ec 100%);
 }
 
@@ -24,7 +18,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
@@ -36,55 +29,19 @@ body {
     text-align: right;
     background-color: var(--background-light);
     overflow-x: hidden;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 h1, h2, h3 {
     font-weight: 800;
     line-height: 1.3;
-}
-
-/* ============================================ */
-/* כפתורים כלליים                               */
-/* ============================================ */
-.main-btn, .secondary-btn {
-    transition: all 0.3s ease;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    border-radius: 30px;
-    cursor: pointer;
-}
-
-.main-btn {
-    background-color: var(--chabad-orange);
-    color: var(--text-light);
-    padding: 14px 30px;
-    font-size: 1.1rem;
-    border: none;
-}
-
-.main-btn--small {
-    padding: 8px 20px;
-    font-size: 0.9rem;
-}
-
-.main-btn:hover {
-    background-color: #e07010;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(245, 130, 32, 0.3);
-}
-
-.secondary-btn {
-    background-color: transparent;
-    color: var(--chabad-burgundy);
-    border: 2px solid var(--chabad-burgundy);
-    padding: 12px 28px;
-}
-
-.secondary-btn:hover {
-    background-color: var(--chabad-burgundy);
-    color: var(--text-light);
-    transform: translateY(-3px);
 }
 
 /* ============================================ */
@@ -118,324 +75,46 @@ h1, h2, h3 {
     gap: 15px;
 }
 
-/* --- UPDATED: הגדלת המותג --- */
 .nav-right img {
-    height: 70px; /* הוגדל מ-50px */
+    height: 65px;
     width: auto;
-    filter: drop-shadow(0 0 8px rgba(700, 700, 700, 5));
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
-
 }
 
 .nav-right span {
     color: var(--text-light);
-    font-size: 1.4rem; /* הוגדל מ-1.2rem */
-    font-weight: 700;
-}
-
-/* ============================================ */
-/* 2. פתיחה (Hero Section)                      */
-/* ============================================ */
-.hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/hero-background.jpg') no-repeat center center/cover;
-    background-attachment: fixed;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    padding: 20px;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, var(--chabad-orange), var(--text-light));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    color: var(--text-light);
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
-}
-
-/* ============================================ */
-/* מבנה כללי ועיצוב סקשנים                      */
-/* ============================================ */
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    text-align: center;
-    color: var(--chabad-burgundy);
-    margin-bottom: 40px;
-}
-
-.intro-section, .mission-section, .connect-section {
-    padding: 70px 20px;
-    position: relative;
-}
-
-#mission {
-    background: var(--background-light);
-}
-
-.intro-section {
-     background: var(--section-bg-gradient);
-}
-
-.intro-text {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.3rem;
-    line-height: 1.8;
-    color: #444;
-}
-
-.divider {
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(to left, var(--chabad-orange), var(--chabad-burgundy));
-    margin: 40px auto 0 auto;
-    border-radius: 5px;
-}
-
-/* ============================================ */
-/* גלריית תמונות רספונסיבית (Gallery Section) */
-/* ============================================ */
-.gallery-section {
-    background-color: var(--background-dark);
-    color: var(--text-light);
-    padding: 70px 20px;
-    text-align: center;
-}
-.gallery-section .section-title {
-    color: var(--chabad-orange);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.gallery-item {
-    text-decoration: none; 
-    position: relative;
-    display: none; /* התמונות מוסתרות ומוצגות ע"י JS */
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-item.visible {
-    display: block; /* JS מוסיף את הקלאס הזה כדי להציג את התמונה */
-}
-
-.gallery-item:hover,
-.gallery-item:focus {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(245, 130, 32, 0.4);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-}
-
-.gallery-item::after {
-    content: '\f00e'; 
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    font-size: 2rem;
-    color: white;
-    background: rgba(0,0,0,0.6);
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    opacity: 0;
-    pointer-events: none; 
-}
-
-.gallery-item:hover::after,
-.gallery-item:focus::after {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-}
-
-.load-more-btn {
-    background-color: var(--chabad-orange);
-    color: var(--text-light);
-    border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 30px auto 0 auto;
-    display: block;
-    transition: all 0.3s ease;
-}
-
-.load-more-btn:hover {
-    background-color: #e07010;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(245, 130, 32, 0.3);
-}
-
-/* ========================================================== */
-/* NEW: פריסת סיפור עם תמונות - בנוי מחדש על CSS Grid */
-/* ========================================================== */
-
-.story-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 80px; /* רווח בין הסיפורים */
-}
-
-/* 1. הגדרת הבסיס עם Grid */
-.story-block {
-    display: grid;
-    /* מחלק את הבלוק לשתי עמודות שוות */
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 60px;
-}
-
-/* 2. היפוך סדר העמודות בבלוק השני */
-.story-block.reverse .story-text {
-    grid-column: 2; /* הטקסט עובר לעמודה השנייה */
-}
-.story-block.reverse .story-images {
-    grid-column: 1; /* התמונות עוברות לעמודה הראשונה */
-    grid-row: 1; /* מוודא שהן נשארות באותה שורה */
-}
-
-/* --- עיצוב צד הטקסט (ללא שינוי מהותי) --- */
-.story-text h3 {
-    font-size: 2rem;
-    color: var(--chabad-burgundy);
-    margin-bottom: 15px;
-}
-
-.story-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-}
-
-.story-divider {
-    margin: 20px 0 0 0;
-    background: linear-gradient(to left, var(--chabad-orange), var(--chabad-burgundy-light));
-}
-
-/* 3. הפיכת אזור התמונות לקונטיינר גמיש */
-.image-cluster {
-    position: relative;
-    width: 100%;
-    /* המפתח: יחס גובה-רוחב שמתאים את עצמו אוטומטית */
-    aspect-ratio: 4 / 3;
-}
-
-.cluster-image {
-    position: absolute;
-    display: block;
-    width: 70%;
-    aspect-ratio: 4 / 3; /* נותן גם למסגרת התמונה יחס קבוע */
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border: 4px solid white;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-}
-
-.cluster-image:hover {
-    transform: scale(1.05) rotate(0deg) !important;
-    z-index: 10 !important;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-}
-
-.cluster-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* מיקום התמונות בתוך הקונטיינר הגמיש */
-.cluster-image.image-1 {
-    top: 0;
-    left: 5%;
-    transform: rotate(-8deg);
-    z-index: 1;
-}
-
-.cluster-image.image-2 {
-    bottom: 0;
-    right: 5%;
-    transform: rotate(5deg);
-    z-index: 2;
-}
-
-
-/* 4. רספונסיביות סופר-פשוטה למובייל */
-@media (max-width: 768px) {
-    .story-block {
-        /* הופך את הגריד לעמודה אחת בלבד - זה הכל! */
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    /* מאפס את היפוך הסדר במובייל כדי שהכל יהיה אחד מתחת לשני */
-    .story-block.reverse .story-text,
-    .story-block.reverse .story-images {
-        grid-column: auto;
-        grid-row: auto;
-    }
-
-    .story-text {
-        text-align: center;
-    }
-    
-    .story-divider {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* נותן לקומפוזיציה יחס ריבועי במובייל כדי לחסוך מקום */
-    .image-cluster {
-        aspect-ratio: 1 / 1;
-    }
-}
-
-/* ============================================ */
-/* מוסדות, פוטר, וכו'                          */
-/* ============================================ */
-/* (כל שאר הסגנונות הקיימים שלך נשארים כאן...) */
+/* ... (שאר הסגנונות נשארים זהים עד אזור המוסדות) ... */
+.main-btn, .secondary-btn { transition: all 0.3s ease; text-decoration: none; font-weight: bold; display: inline-block; border-radius: 30px; cursor: pointer; }
+.main-btn { background-color: var(--chabad-orange); color: var(--text-light); padding: 14px 30px; font-size: 1.1rem; border: none; }
+.main-btn--small { padding: 8px 20px; font-size: 0.9rem; }
+.main-btn:hover { background-color: #e07010; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(245, 130, 32, 0.3); }
+.secondary-btn { background-color: transparent; color: var(--chabad-burgundy); border: 2px solid var(--chabad-burgundy); padding: 12px 28px; }
+.secondary-btn:hover { background-color: var(--chabad-burgundy); color: var(--text-light); transform: translateY(-3px); }
+.hero-section { background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/hero-background.jpg') no-repeat center center/cover; background-attachment: fixed; height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; padding: 20px; }
+.hero-content h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(45deg, var(--chabad-orange), var(--text-light)); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8)); }
+.hero-content p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 600px; color: var(--text-light); text-shadow: 2px 2px 6px rgba(0,0,0,0.9); }
+.section-title { font-size: 2.5rem; font-weight: 800; text-align: center; color: var(--chabad-burgundy); margin-bottom: 40px; }
+.intro-section, .mission-section, .connect-section { padding: 70px 20px; position: relative; }
+#intro { scroll-margin-top: 100px; background: var(--section-bg-gradient); }
+.intro-text { max-width: 700px; margin: 0 auto; text-align: center; font-size: 1.3rem; line-height: 1.8; color: #444; }
+.divider { width: 100px; height: 3px; background: linear-gradient(to left, var(--chabad-orange), var(--chabad-burgundy)); margin: 40px auto 0 auto; border-radius: 5px; }
+.story-container { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 80px; }
+.story-block { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
+.story-block.reverse .story-text { grid-column: 2; }
+.story-block.reverse .story-images { grid-column: 1; grid-row: 1; }
+.story-text h3 { font-size: 2rem; color: var(--chabad-burgundy); margin-bottom: 15px; }
+.story-text p { font-size: 1.1rem; line-height: 1.8; color: #555; }
+.story-divider { margin: 20px 0 0 0; background: linear-gradient(to left, var(--chabad-orange), var(--chabad-burgundy-light)); }
+.image-cluster { position: relative; width: 100%; aspect-ratio: 4 / 3; }
+.cluster-image { position: absolute; display: block; width: 70%; aspect-ratio: 4 / 3; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border: 4px solid white; overflow: hidden; transition: all 0.3s ease-in-out; }
+.cluster-image:hover { transform: scale(1.05) rotate(0deg) !important; z-index: 10 !important; box-shadow: 0 15px 40px rgba(0,0,0,0.25); }
+.cluster-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cluster-image.image-1 { top: 0; left: 5%; transform: rotate(-8deg); z-index: 1; }
+.cluster-image.image-2 { bottom: 0; right: 5%; transform: rotate(5deg); z-index: 2; }
 .institutions-section { padding: 70px 20px; background-color: var(--chabad-burgundy); color: var(--text-light); }
 .institutions-section .section-title { color: var(--text-light); }
 .institutions-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
@@ -445,8 +124,64 @@ h1, h2, h3 {
 .institution-card h3 { font-size: 1.5rem; color: var(--chabad-burgundy); margin-bottom: 10px; text-align: center; }
 .institution-card .card-details { list-style: none; padding: 0; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
 .institution-card .card-details li { font-size: 0.95rem; color: #555; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-.institution-card .card-details li strong { color: var(--chabad-burgundy); }
-.institution-card .card-details li i { color: var(--chabad-orange); font-size: 0.9rem; }
+
+/* ============================================ */
+/* אזור שירותים נוספים                         */
+/* ============================================ */
+.more-services-section {
+    padding: 70px 20px;
+    background-color: var(--background-light);
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.service-card img {
+    width: 100%;
+    height: 220px; /* הוקטן מ-250px */
+    object-fit: cover;
+}
+
+.service-card-content {
+    padding: 25px; /* הוקטן מ-30px */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-card-content h3 {
+    color: var(--chabad-orange);
+    font-size: 1.5rem; /* הוקטן מ-1.6rem */
+    margin-bottom: 15px;
+}
+
+.service-card-content p {
+    color: #555;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* ... (שאר הקוד נשאר זהה) ... */
 .connect-section { padding: 70px 20px; }
 .connect-options { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; }
 .option-card { background-color: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 25px rgba(0,0,0,0.07); text-align: right; border-left: 5px solid var(--chabad-orange); position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; flex-basis: 400px; border: 1px solid #eee; }
@@ -461,8 +196,6 @@ h1, h2, h3 {
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(245, 130, 32, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(245, 130, 32, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 130, 32, 0); } }
 .lightbox { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); backdrop-filter: blur(5px); }
 .lightbox.show { display: flex; justify-content: center; align-items: center; animation: fadeIn 0.3s ease; }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.lightbox-content { position: relative; max-width: 90%; max-height: 90%; margin: auto; animation: zoomIn 0.3s ease; }
 @keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 #lightbox-img { width: 100%; height: auto; max-height: 90vh; object-fit: contain; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 .close-btn { position: absolute; top: -40px; right: 0; color: var(--text-light); font-size: 2.5rem; font-weight: bold; cursor: pointer; z-index: 10000; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; background-color: rgba(0,0,0,0.7); transition: all 0.3s ease; }
@@ -491,80 +224,57 @@ h1, h2, h3 {
 a:focus-visible, button:focus-visible { outline: 3px solid var(--chabad-orange); outline-offset: 3px; border-radius: 5px; }
 
 /* ============================================ */
-/* NEW: התאמות רספונסיביות למובייל              */
+/* התאמות רספונסיביות למובייל              */
 /* ============================================ */
 @media (max-width: 992px) {
-    /* -- התאמה לטאבלטים -- */
     .contact-info {
-        grid-template-columns: repeat(2, 1fr); /* 2 עמודות בטאבלט */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    /* -- התאמה כללית לגדלי פונט במובייל -- */
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    .hero-content p {
-        font-size: 1.1rem;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
-    .story-text h3 {
-        font-size: 1.6rem;
-    }
-
-    /* -- התאמת סרגל ניווט עליון -- */
-    .nav-right span {
-        font-size: 1.2rem;
-    }
-    .nav-right img {
-        height: 50px;
-    }
-
-    /* -- התאמת אזור הסיפור -- */
-    .story-block, .story-block.reverse {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .story-text {
-        text-align: center;
-    }
-    .story-divider {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .image-cluster {
-        min-height: 300px;
-        margin-bottom: 20px; /* רווח נוסף מתחת לתמונות במובייל */
-    }
-
-    /* -- התאמת הפוטר העליון (צור קשר) -- */
-    .contact-info {
-        grid-template-columns: 1fr; /* עמודה אחת במובייל */
-    }
-
-    /* -- התאמת הפוטר התחתון -- */
-    .footer-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .footer-left, .footer-center, .footer-right {
-        text-align: center;
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content p { font-size: 1.1rem; }
+    .section-title { font-size: 2rem; }
+    .story-text h3 { font-size: 1.6rem; }
+    .nav-right span { font-size: 1.2rem; }
+    .nav-right img { height: 50px; }
+    .story-block { grid-template-columns: 1fr; gap: 30px; }
+    .story-block.reverse .story-text, .story-block.reverse .story-images { grid-column: auto; grid-row: auto; }
+    .story-text { text-align: center; }
+    .story-divider { margin-left: auto; margin-right: auto; }
+    .image-cluster { aspect-ratio: 1 / 1; }
+    .contact-info { grid-template-columns: 1fr; }
+    .footer-container { flex-direction: column; gap: 15px; }
+    .footer-left, .footer-center, .footer-right { text-align: center; }
+    .services-container {
+        grid-template-columns: 1fr;
     }
 }
 
-/* ============================================ */
-/* שינויים ותיקונים אחרונים             */
-/* ============================================ */
+/* 1. מאפשר לדפדפן לנהל את הגלילה החלקה בעצמו - הרבה יותר יעיל */
+html {
+    scroll-behavior: smooth;
+}
 
-/* 1. הגדלה והדגשה נוספת של המותג בסרגל העליון */
+/* 2. מבטיח שכל קפיצה לחלק בעמוד תשאיר מרווח מהתפריט העליון */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* 3. מסיר את האפקט שגורם לגלילה להיתקע */
+.hero-section {
+    background-attachment: scroll; /* משנה את ההגדרה הקודמת (fixed) */
+}
+
+/* הוספת רקע לבן חצי-שקוף ללוגו */
 .nav-right img {
-    height: 65px; 
-}
-
-/* 2. יצירת מרווח עליון בגלילה לאזור הפתיחה */
-#intro {
-    scroll-margin-top: 100px; /* יוצר מרווח של 100px מהחלק העליון רק בזמן הגלילה */
+    height: 60px;
+    width: 100px; /* מבטיח שהצורת תהיה עיגול מושלם */
+    object-fit: cover;
+    border-radius: 40%; /* הופך את הרקע לעיגול */
+    background-color: rgba(255, 255, 255, 0.5); /* רקע לבן עם 30% אטימות */
 }

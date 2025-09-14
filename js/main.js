@@ -1,42 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =========================================================================
-    // פונקציונליות 1: גלילה חלקה
-    // =========================================================================
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // =========================================================================
-    // פונקציונליות 2: לייטבוקס (הגדלת תמונות)
+    // פונקציונליות: לייטבוקס לתמונות הסיפור
     // =========================================================================
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         const lightboxImg = document.getElementById('lightbox-img');
-        const galleryItems = document.querySelectorAll('.gallery-grid .gallery-item');
+        // בוחר את כל קישורי התמונות עם מאפיין data-lightbox
+        const imageLinks = document.querySelectorAll('a[data-lightbox]');
         const closeBtn = lightbox.querySelector('.close-btn');
         const prevBtn = lightbox.querySelector('.prev-btn');
         const nextBtn = lightbox.querySelector('.next-btn');
 
-        let currentImageIndex = 0;
-        const allImages = Array.from(galleryItems);
+        if (imageLinks.length === 0) return;
+
+        let currentImageIndex;
+        const allImages = Array.from(imageLinks);
 
         function showImage(index) {
             const imgLink = allImages[index];
             if (imgLink) {
                 lightboxImg.src = imgLink.href;
-                lightboxImg.alt = imgLink.querySelector('img').alt;
+                lightboxImg.alt = imgLink.querySelector('img') ? imgLink.querySelector('img').alt : 'תמונה מוגדלת';
                 currentImageIndex = index;
             }
         }
@@ -64,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         allImages.forEach((item, index) => {
             item.addEventListener('click', (e) => {
-                e.preventDefault(); // מונע פתיחה של התמונה בקישור נפרד
+                e.preventDefault();
                 openLightbox(index);
             });
         });
@@ -82,40 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => {
             if (lightbox.classList.contains('show')) {
                 if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') showNextImage();
-                if (e.key === 'ArrowRight') showPrevImage();
+                if (e.key === 'ArrowRight') showNextImage();
+                if (e.key === 'ArrowLeft') showPrevImage();
             }
         });
-    }
-
-    // =========================================================================
-    // פונקציונליות 3: "טען עוד" לגלריה
-    // =========================================================================
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    if (loadMoreBtn) {
-        const galleryItems = document.querySelectorAll('.gallery-grid .gallery-item');
-        const itemsPerLoad = 4; // כמה תמונות להציג בכל לחיצה
-        let currentlyVisible = 0;
-
-        function showItems() {
-            const newLimit = currentlyVisible + itemsPerLoad;
-            galleryItems.forEach((item, index) => {
-                if (index < newLimit) {
-                    item.classList.add('visible');
-                }
-            });
-            currentlyVisible = newLimit;
-
-            // הסתרת הכפתור אם כל התמונות הוצגו
-            if (currentlyVisible >= galleryItems.length) {
-                loadMoreBtn.style.display = 'none';
-            }
-        }
-
-        // הצגת הפריטים הראשונים
-        showItems();
-
-        // האזנה לכפתור "טען עוד"
-        loadMoreBtn.addEventListener('click', showItems);
     }
 });
