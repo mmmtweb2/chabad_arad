@@ -270,11 +270,9 @@ section[id] {
     background-attachment: scroll; /* משנה את ההגדרה הקודמת (fixed) */
 }
 
-/* הוספת רקע לבן חצי-שקוף ללוגו */
-.nav-right img {
-    height: 60px;
-    width: 100px; /* מבטיח שהצורת תהיה עיגול מושלם */
-    object-fit: cover;
-    border-radius: 40%; /* הופך את הרקע לעיגול */
-    background-color: rgba(255, 255, 255, 0.5); /* רקע לבן עם 30% אטימות */
+/* אפקט קצה שקוף ללוגו */
+.nav-right img {    
+    /* יצירת המסיכה עם הדרגתיות רדיאלית (עגולה) */
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
 }
